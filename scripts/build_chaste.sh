@@ -41,6 +41,6 @@ else # if [ $VERSION = 'develop' ]; then
           -B$CHASTE_BUILD_DIR
 fi
 
-make --no-print-directory -j$NCORES -C $CHASTE_BUILD_DIR # -f $CHASTE_BUILD_DIR/Makefile
+make --no-print-directory -j$NCORES -C $CHASTE_BUILD_DIR core cell_based # -f $CHASTE_BUILD_DIR/Makefile
 echo "Done!"
 echo "New projects may be initialised with the provided script new_project.sh"
