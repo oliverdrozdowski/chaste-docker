@@ -95,13 +95,13 @@ RUN update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 1
 RUN pip install --upgrade pip
 # Install TextTest for regression testing (this requires pygtk)
 RUN pip install texttest
-ENV TEXTTEST_HOME /usr/local/bin/texttest
+ENV TEXTTEST_HOME=/usr/local/bin/texttest
 
 # Installed by CMake
 # RUN pip install chaste-codegen
 
 # Create user and working directory for Chaste files
-ENV USER "chaste"
+ENV USER="chaste"
 RUN useradd -ms /bin/bash chaste && echo "chaste:chaste" | chpasswd && adduser chaste sudo
 
 # Allow CHASTE_DIR to be set at build time if desired
@@ -112,7 +112,7 @@ WORKDIR ${CHASTE_DIR}
 # Add scripts
 COPY --chown=chaste:chaste scripts "${CHASTE_DIR}/scripts"
 USER chaste
-ENV PATH "${CHASTE_DIR}/scripts:${PATH}"
+ENV PATH="${CHASTE_DIR}/scripts:${PATH}"
 
 # Set environment variables
 # RUN source /home/chaste/scripts/set_env_vars.sh
